@@ -14,10 +14,12 @@ module.exports = async (client, reaction, user) => {
       if (!member.roles.cache.has(role)) {
         try {
           member.roles.remove(role);
-
-          member.send(
-            `I have remove the role \`${role.name}\` in the guild \`${reaction.message.guild.name}\``
-          );
+                   const removed = new MessageEmbed()
+        .setTitle(`❗ Removed A Role In \`${reaction.message.guild.name}\``)
+        .addField(`**Role**`, `${role.name}`)
+        .setColor('RED')
+        .setAuthor(`${reaction.message.guild.name}`, reaction.message.guild.iconURL({dynamic: true}))
+          member.send(removed)
         } catch (e) {
           message.channel.send("Something has gone wrong " + e.message);
         }

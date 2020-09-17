@@ -43,6 +43,80 @@ fs.readdir("./events/", (err, files) => {
 });
 
 
+client.on("message", message => {
+  let user = message.author;
+  db.add(`xp_${message.guild.id}_${user.id}`, 3);
+  db.add(`messages_${message.guild.id}_${message.author.id}`, 1);
+  let messagefetch = db.fetch(
+    `messages_${message.guild.id}_${message.author.id}`
+  );
+
+  let messages;
+  if (messagefetch == 25) messages = 25;
+  //Level 1
+  else if (messagefetch == 65) messages = 65;
+  // Level 2
+  else if (messagefetch == 115) messages = 115;
+  // Level 3
+  else if (messagefetch == 200) messages = 200;
+  // Level 4
+  else if (messagefetch == 300) messages = 300;
+  // Level 5
+  else if (messagefetch == 375) messages = 375;
+  //level 6
+  else if (messagefetch == 500) messages = 500;
+  // Level 7
+  else if (messagefetch == 575) messages = 575;
+  // Level 8
+  else if (messagefetch == 700) messages = 700;
+  // Level 9
+  else if (messagefetch == 775) messages = 775;
+  // Level 10
+  else if (messagefetch == 1000) messages = 1000;
+  // level 11
+    else if (messagefetch == 1150) messages = 1150;
+  // Level 12
+  else if (messagefetch == 1250) messages = 1250;
+  // Level 13
+  else if (messagefetch == 1350) messages = 1350;
+  // Level 14
+  else if (messagefetch == 1500) messages = 1500;
+  // Level 15
+  else if (messagefetch == 1650) messages = 1650;
+  // level 16
+  else if (messagefetch == 1750) messages = 1750;
+  // Level 17
+  else if (messagefetch == 1900) messages = 1900;
+  // Level 
+  else if (messagefetch == 700) messages = 700;
+  // Level 4
+  else if (messagefetch == 775) messages = 775;
+  // Level 5
+  else if (messagefetch == 1000) messages = 1000;
+  if (!isNaN(messages)) {
+    db.add(`level_${message.guild.id}_${message.author.id}`, 1);
+    let levelfetch = db.fetch(
+      `level_${message.guild.id}_${message.author.id}`
+    );
+
+    let levelembed = new Discord.MessageEmbed()
+      .setDescription(
+        `${message.author}, You have leveled up to level ${levelfetch}`
+      )
+      .setColor(`#66ff99`)
+      .setAuthor(`${message.author.tag}`, message.author.avatarURL());
+    message.channel.send(levelembed);
+    let levelembed2 = new Discord.MessageEmbed()
+      .setDescription(
+        `<a:star:747477610170417283> ${message.author}, Leveled Up to Level ${levelfetch}`
+      )
+      .setColor(`#66ff99`)
+      .setAuthor(`${message.author.tag}`, message.author.avatarURL());
+    client.channels.cache.get(`${db.fetch(`levelchannel_${message.guild.id}`)}`).send(levelembed2);
+  }
+});
+
+
 
 client.on("ready", () => {
 console.log(`Ready ;)`)
