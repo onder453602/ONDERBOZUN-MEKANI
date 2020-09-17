@@ -87,12 +87,14 @@ client.on("message", message => {
   else if (messagefetch == 1750) messages = 1750;
   // Level 17
   else if (messagefetch == 1900) messages = 1900;
-  // Level 
-  else if (messagefetch == 700) messages = 700;
-  // Level 4
-  else if (messagefetch == 775) messages = 775;
-  // Level 5
-  else if (messagefetch == 1000) messages = 1000;
+  // Level 18
+  else if (messagefetch == 2050) messages = 2050;
+  // Level 19
+  else if (messagefetch == 2250) messages = 2250;
+  // Level 20
+  else if (messagefetch == 2500) messages = 2500;
+  // level 21
+  // ADD MORE IF U WANT
   if (!isNaN(messages)) {
     db.add(`level_${message.guild.id}_${message.author.id}`, 1);
     let levelfetch = db.fetch(
