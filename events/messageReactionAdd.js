@@ -16,10 +16,12 @@ module.exports = async (client, reaction1, user) => {
       if (!member.roles.cache.has(role)) {
         try {
           member.roles.add(role);
-
-          member.send(
-            `I have added the role \`${role.name}\` in the guild \`${reaction1.message.guild.name}\``
-          );
+        const added = new MessageEmbed()
+        .setTitle(`✅ Added A Role In \`${reaction1.message.guild.name}\``)
+        .addField(`**Role**`, `${role}`)
+        .setColor('GREEN')
+        .setAuthor(`${reaction1.message.guild.name}`, reaction1.message.guild.iconURL({dynamic: true}))
+          member.send(added);
         } catch (e) {
           message.channel.send("Something has gone wrong " + e.message);
         }

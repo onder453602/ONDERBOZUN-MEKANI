@@ -10,15 +10,9 @@ module.exports.run = async(client,message,args)=> {
     message.channel.send(embed)
 }
 
-exports.conf = {
-    enabled: true,
-    guildOnly: true,
-    aliase:["ra"]
-}
-
-exports.help = {
-    name:"rank",
-    description:"Empty",
-    usage:"rank",
-    category:"general"
-}
+module.exports.help = {
+  name: "rank",
+  description: "Lists your rank",
+  usage: "rank",
+  aliases: ["level"]
+};

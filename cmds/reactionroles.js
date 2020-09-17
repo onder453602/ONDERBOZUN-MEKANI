@@ -10,7 +10,7 @@ module.exports.run = async(client,message,args)=> {
     return message.reply("OI stop right there");
   
   let prompts = [
-    "What **Role*+ would you like to give? (use id or mention)",
+    "What **Role** would you like to give? (use id or mention)",
     "What **emoji** would you like users to react with?(custom emojis do not work)",
     "What would you like the text on the **message** to be(use --skip to get default text)",
     "Where would you like to send this message? (use channel name id or mention)"
@@ -136,16 +136,9 @@ module.exports.run = async(client,message,args)=> {
 };
 
 
-
-exports.conf = {
-    enabled: true,
-    guildOnly: true,
-    aliase:[]
-}
-
-exports.help = {
-    name:"rr",
-    description:"Reaction Roles",
-    usage:"[prefix]rr",
-    category:"utility"
-}
+module.exports.help = {
+  name: "rr",
+  description: "create a reaction role",
+  usage: "rr",
+  aliases: ["reactionrole"]
+};
