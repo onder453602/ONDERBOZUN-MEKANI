@@ -1,17 +1,13 @@
 const Discord = require("discord.js")
 const client = new Discord.Client()
-const config = require("./config.json")
+const config = require("../config.json")
 const db = require("quick.db")
 const fs = require("fs");
-client.on("ready", () => {
-    console.log(`Logged in discord Bot name:${client.user.username}`)
-})
 
-client.login(config.token)
 
 const prefix = config.prefix
-client.commands = new Discord.Collection(undefined,undefined);
-client.aliases = new Discord.Collection(undefined,undefined);
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 
 fs.readdir("./events/", (err, files) => {
   if (err) console.log(err);
@@ -51,21 +47,11 @@ fs.readdir("./cmds/", async (err, files) => {
     };
     console.log("All Commands have been loaded successfully.")
 })
-client.on("message" , msg => {
-    if(msg.content == "Dream Code"){
-        return msg.reply("Dream Code <3")
-    }
 
-if(msg.content == prefix + "botinfo"){
-    let botinfo = new Discord.MessageEmbed()
-    .setColor("RANDOM")
-    .setThumbnail(client.user.avatarURL())
-    .setDescription(`Username:${client.user.username} \n ID:${client.user.id} \n Developer:${client.users.cache.find(user => user.id == config.owner).tag}(<@${config.owner}>) \n Discord.js Version:${Discord.version} \n Quick.db Version:${db.version}`)
 
-    msg.channel.send(botinfo)
-}
+client.on("ready", () => {
+console.log(`Ready ;)`)
 })
-
 
 client.on("message", async message => {
     if(message.author.bot) return;
@@ -83,17 +69,6 @@ client.on("message", async message => {
     if(commandfile) commandfile.run(client,message,args);
     
 })
-client.snipe = new Map()
 
-client.on("messageDelete", async(message,channel) => {
-    if(message.author.bot) return;
-    if(!message.guild) return;
-    client.snipe.set(message.channel.id, {
-        msg:message.content,
-        user:message.author.tag,
-        profilephoto:message.author.displayAvatarURL(),
-        image:message.attachments.first() ? message.attachments.first().proxyURL : null,
-        date:message.createdTimestamp
-        
-    })
-})
+
+client.on(`NzQ2MTk2MjA5MzU3Njg0ODE4.Xz8zXw.V1E_QBpPWOKtz2GGWRIaKCCDdx8`)
