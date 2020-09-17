@@ -43,7 +43,7 @@ fs.readdir("./events/", (err, files) => {
 });
 
 
-client.on("message", message => {
+/*client.on("message", message => {
   let user = message.author;
   db.add(`xp_${message.guild.id}_${user.id}`, 3);
   db.add(`messages_${message.guild.id}_${message.author.id}`, 1);
@@ -116,7 +116,7 @@ client.on("message", message => {
       .setAuthor(`${message.author.tag}`, message.author.avatarURL());
     client.channels.cache.get(`${db.fetch(`levelchannel_${message.guild.id}`)}`).send(levelembed2);
   }
-});
+});*/
 
 
 
@@ -126,4 +126,4 @@ console.log(`Ready ;)`)
 
 
 
-client.login(`NzU2MjUzNzQwMDU0NjA5OTIx.X2PKLg.2ewen-tUoN9kZXfsIUyV39b0uGc`)
+client.login(``)
