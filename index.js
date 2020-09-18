@@ -119,6 +119,8 @@ fs.readdir("./events/", (err, files) => {
 });*/
 
 
+// DONT USE LEVEL ON THIS PROJECT
+
 
 client.on("ready", () => {
 console.log(`Ready ;)`)
