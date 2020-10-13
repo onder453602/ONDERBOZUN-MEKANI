@@ -122,10 +122,24 @@ fs.readdir("./events/", (err, files) => {
 // DONT USE LEVEL ON THIS PROJECT
 
 
+
+console.log("ZYVOK x PYTHONIC")
+console.log("Çalıp çalıp tanıtacaksanız gidin aq")
+
+
+
+
+
+
+
+
+
+
+
 client.on("ready", () => {
 console.log(`Ready ;)`)
 })
 
 
 
-client.login(`NzY1NTU5MTYyMjg5NTIwNzEx.X4Wkhw.6FGu5yfW0QIbILrG85YBCDq1tTg`)
+client.login(`NzY1NTYzNzI1MjgwMzEzMzU0.X4Woxw.-Kgjy0en4hOcLDpAbFGNAQz5BYA`)

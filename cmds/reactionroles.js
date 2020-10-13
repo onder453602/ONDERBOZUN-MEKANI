@@ -1,11 +1,25 @@
 const Discord = require("discord.js")
 const db = require('quick.db')
 
+var licenser = ("12345")
+
+var pythonic = "youtube = pythonic"
+if (pythonic = "youtube = pythonic") {
+  console.log('youtube = PYTHONIC')
+}
+
+
+
+
+
+//pythonic
+
+
 module.exports.run = async(client,message,args)=> {
   if (!message.guild.me.hasPermission("MANAGE_ROLES"))
     return message.reply(
       "Rol verme yetkim yok"
-    );
+    ); //pythonic
   if (!message.member.hasPermission("MANAGE_ROLES"))
     return message.reply("Yetkin bulunmuyor");
   
@@ -18,27 +32,27 @@ module.exports.run = async(client,message,args)=> {
   let roles = await getResponses(message);
   let embed = new Discord.MessageEmbed()
     .setColor("#FF5349")
-    .setFooter('pythonic')
+    .setFooter('pythonic')//pythonic
     .setDescription(
       `\`Rol:\`<@&${roles.role}>\n\`Emoji:\`${roles.emoji}\n\`Yazı:\`${roles.text}\n\`Kanal\`${roles.channel}`
     );
-  let msg = await message.channel.send("Confirm", embed);
+  let msg = await message.channel.send("Onaylıyormusun?", embed);
   await msg.react("✅");
   await msg.react("❌");
   let filter = (reaction, user) =>
     ["✅", "❌"].includes(reaction.emoji.name) &&
     !user.bot &&
     user.id === message.author.id;
-  let reactions = await msg.awaitReactions(filter, {
-    max: 1,
-    time: 60000,
-    errors: ["time"]
+  let reactions = await msg.awaitReactions(filter, {//pythonic//pythonic//pythonic//pythonic//pythonic//pythonic
+    max: 1,//pythonic
+    time: 60000,//pythonic//pythonic
+    errors: ["time"]//pythonic//pythonic//pythonic
   });
-  let choice = reactions.get("✅") || reactions.get("❌");
+  let choice = reactions.get("✅") || reactions.get("❌");//pythonic//pythonic
   if (choice.emoji.name === "✅") {
-    let emb = new Discord.MessageEmbed()
+    let emb = new Discord.MessageEmbed()//pythonic
       .setColor("#FF5349")
-      .setDescription(roles.text || `React to get <@&${roles.role}> role`);
+      .setDescription(roles.text || `Bu rolü almak için emojiye bas :  <@&${roles.role}> -pythonic`);
     roles.channel.send(emb).then(msg => {
       msg.react(roles.emoji);
         function random(length) {
@@ -60,7 +74,7 @@ module.exports.run = async(client,message,args)=> {
       db.set(`rolereactions_${message.guild.id}_${msg.id}`, roles);
     });
   } else if (choice.emoji.name === "❌") {
-    message.channel.send("You cancelled the command");
+    message.channel.send("Komutu iptal ettiniz - pythonic");
   }
   async function getResponses(message) {
     let settings = {};
@@ -83,7 +97,7 @@ module.exports.run = async(client,message,args)=> {
         } catch (err) {
           throw new Error("invalid role")
           message.reply(
-            "Role not found reaction role creation has been stopped"
+            "Rol bulunmadı"
           );
         }
       } else if (i === 1) {
@@ -94,13 +108,13 @@ module.exports.run = async(client,message,args)=> {
         if (isCustomEmoji(emoji)){
            throw new Error("invalid emoji")
           return message.reply(
-            "Emoji is custom reaction role creation has been stopped"
+            "emojiyi bulamıyorum"
           );
         }else{
         settings.emoji = emoji;
         }
       } else if (i === 2) {
-        if (content === "--skip") {
+        if (content === "--geç") {
           settings.text = "";
         } else {
           settings.text = content;
@@ -135,6 +149,8 @@ module.exports.run = async(client,message,args)=> {
     return settings;
   }
 };
+
+
 
 
 module.exports.help = {
