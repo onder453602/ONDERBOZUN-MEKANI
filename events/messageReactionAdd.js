@@ -17,8 +17,8 @@ module.exports = async (client, reaction1, user) => {
         try {
           member.roles.add(role);
         const added = new MessageEmbed()
-          .setTitle(`✅ Bir rol eklendi \`${reaction1.message.guild.name}\``)
-        .addField(`**Rol**`, `${role.name}`)
+          .setTitle(`✅ \`${reaction1.message.guild.name}\` Sunucusunda bir rol eklendi`)
+        .addField(`**Ekelenen rol:**`, `${role.name}`)
         .setColor('GREEN')
         .setAuthor(`${reaction1.message.guild.name}`, reaction1.message.guild.iconURL({dynamic: true}))
           member.send(added);

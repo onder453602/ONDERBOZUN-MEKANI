@@ -15,8 +15,8 @@ module.exports = async (client, reaction, user) => {
         try {
           member.roles.remove(role);
                    const removed = new MessageEmbed()
-        .setTitle(`❗ Removed A Role In \`${reaction.message.guild.name}\``)
-        .addField(`**Role**`, `${role.name}`)
+        .setTitle(`❗  \`${reaction.message.guild.name}\` sunucusundaki rolün silindi`)
+        .addField(`**Silinen rol:**`, `${role.name}`)
         .setColor('RED')
         .setAuthor(`${reaction.message.guild.name}`, reaction.message.guild.iconURL({dynamic: true}))
           member.send(removed)
