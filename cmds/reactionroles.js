@@ -4,22 +4,23 @@ const db = require('quick.db')
 module.exports.run = async(client,message,args)=> {
   if (!message.guild.me.hasPermission("MANAGE_ROLES"))
     return message.reply(
-      "Im sorry but I do not have the valid permissions to give roles"
+      "Rol verme yetkim yok"
     );
   if (!message.member.hasPermission("MANAGE_ROLES"))
-    return message.reply("OI stop right there");
+    return message.reply("Yetkin bulunmuyor");
   
   let prompts = [
-    "What **Role** would you like to give? (use id or mention)",
-    "What **emoji** would you like users to react with?(custom emojis do not work)",
-    "What would you like the text on the **message** to be(use --skip to get default text)",
-    "Where would you like to send this message? (use channel name id or mention)"
+    "hangi **rol**'ü vermemi istersin'? (id yada etiketle)",
+    "hangi **emoji**'ye tıklayarak rol almalılar'?(Sohbete atın)",
+    "Yazı olarak ne yazayım?",
+    "Bunu nereye atayım? Id/kanal etiketle"
   ];
   let roles = await getResponses(message);
   let embed = new Discord.MessageEmbed()
     .setColor("#FF5349")
+    .setFooter('pythonic')
     .setDescription(
-      `\`Role:\`<@&${roles.role}>\n\`Emoji:\`${roles.emoji}\n\`Text:\`${roles.text}\n\`Channel\`${roles.channel}`
+      `\`Rol:\`<@&${roles.role}>\n\`Emoji:\`${roles.emoji}\n\`Yazı:\`${roles.text}\n\`Kanal\`${roles.channel}`
     );
   let msg = await message.channel.send("Confirm", embed);
   await msg.react("✅");
