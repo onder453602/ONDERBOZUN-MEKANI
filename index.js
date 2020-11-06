@@ -142,4 +142,4 @@ console.log(`Ready ;)`)
 
 
 
-client.login(`NzY1NTY0NzY5MzAxMjk5MjQx.X4WpwA.JnJ-oHKjlt19Hkl9u5hkf79jcCk`)
+client.login(`NzY1NTY0NzY5MzAxMcCk`)
