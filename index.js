@@ -142,4 +142,4 @@ console.log(`Ready ;)`)
 
 
 
-client.login(`NzY1NTY0NzY5MzAxMcCk`)
+client.login(process.env.TOKEN)

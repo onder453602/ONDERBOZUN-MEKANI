@@ -74,7 +74,7 @@ module.exports.run = async(client,message,args)=> {
       db.set(`rolereactions_${message.guild.id}_${msg.id}`, roles);
     });
   } else if (choice.emoji.name === "❌") {
-    message.channel.send("Komutu iptal ettiniz - pythonic");
+    message.channel.send("Komutu iptal ettiniz OYUNCU BOT");
   }
   async function getResponses(message) {
     let settings = {};
